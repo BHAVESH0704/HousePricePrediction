@@ -1,3 +1,4 @@
+import joblib
 import pandas as pd
 import matplotlib.pyplot as plt
 from sklearn.model_selection import train_test_split
@@ -23,6 +24,7 @@ model = RandomForestRegressor(
     max_depth=None,
     random_state=42
 )
+    
 
 model.fit(X_train, y_train)
 
@@ -51,3 +53,8 @@ plt.xlabel("Actual Prices")
 plt.ylabel("Predicted Prices")
 plt.title("Random Forest: Actual vs Predicted Prices")
 plt.show()
+
+joblib.dump(model, "house_price_model.pkl")
+print("Model saved correctly!")
+
+
